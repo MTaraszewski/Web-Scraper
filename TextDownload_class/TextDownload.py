@@ -1,31 +1,10 @@
-#####################################################
-##
-## AUTHOR: MTaraszewski
-##
-## OBJECTIVE: Provide Web Scraping tool Text Download class
-##
-#####################################################
-
-###########################################################
-## STEP 0: LIBRARIES
-###########################################################
-
 from Webpage_class.Webpage import Webpage
-
-###########################################################
-## STEP 1 CLASS(ES) DEFINITION
-###########################################################
 
 
 class TextDownload(Webpage):
     def __init__(self, input_object):
         """
         Initializes a TextDownload object.
-
-        :param input_object: an object from which data will be fetched.
-
-        A TextDownload object has one attribute:
-            self.input_object (an instance of Webpage class)
         """
         self.input_object = input_object
 
