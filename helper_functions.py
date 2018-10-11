@@ -1,28 +1,8 @@
-#####################################################
-##
-## AUTHOR: MTaraszewski
-##
-## OBJECTIVE: Provide Web Scraping tool helper functions
-##
-#####################################################
-
-###########################################################
-## STEP 0: LIBRARIES
-###########################################################
-
 import requests
 import os
 import errno
 
-###########################################################
-## STEP 1: USER PARAMETERS (path, etc.)
-###########################################################
-
 PATH = os.path.dirname(os.path.realpath(__file__))
-
-###########################################################
-## STEP 2 HELPER FUNCTIONS DEFINITION
-###########################################################
 
 
 def get_link():
@@ -85,7 +65,7 @@ def check_connection(input_object):
 
     :param input_object: an instance of Webpage class
 
-    :return: Prints connection status.
+    :return: Prints connection status. Returns boolean.
     """
     if input_object.set_request().status_code == requests.codes.ok:
         print('Connection status: OK')
