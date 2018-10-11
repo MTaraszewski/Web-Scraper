@@ -1,22 +1,6 @@
-#####################################################
-##
-## AUTHOR: MTaraszewski
-##
-## OBJECTIVE: Provide Web Scraping tool Image Download class
-##
-#####################################################
-
-###########################################################
-## STEP 0: LIBRARIES
-###########################################################
-
 from Webpage_class.Webpage import Webpage
 from multiprocessing import Pool
 import urllib.request
-
-###########################################################
-## STEP 1 HELPER FUNCTIONS DEFINITION
-###########################################################
 
 
 def has_class_but_no_id_src(tag):
@@ -28,27 +12,16 @@ def has_class_but_no_id_src(tag):
     """
     return tag.has_attr('src') and not tag.has_attr('id')
 
-###########################################################
-## STEP 2 CLASS(ES) DEFINITION
-###########################################################
-
 
 class ImageDownload(Webpage):
     def __init__(self, input_object):
         """
         Initializes a ImageDownload object.
-
-        :param input_object: an object from which data will be fetched.
-
-        A ImageDownload object has one attribute:
-            self.input_object (an instance of Webpage class)
         """
         self.input_object = input_object
 
     def find_all_divs(self):
         """
-        Finds all 'divisions' ('div') tags of parameters {'class': 'box-bg'} within the 'soup'
-
         :return: 'soup' with only 'divisions' tags of parameters {'class': 'box-bg'}
         """
         return self.input_object.get_soup().find_all('div', {'class': 'box-bg'})
@@ -73,9 +46,7 @@ class ImageDownload(Webpage):
 
     def find_all_has_class_no_id_src(self):
         """
-        Returns a 'soup' with “class” attribute but w/o the “id” attribute within the 'soup'
-
-        :return: 'soup' with “class” and w/o the “id” attributes
+        :return: 'soup' with “class” and w/o the “id” attributes within the 'soup'
         """
         return self.input_object.get_soup().find_all(has_class_but_no_id_src)
 
@@ -118,7 +89,9 @@ class ImageDownload(Webpage):
         :return: All images in input_dict saved into chosen directory.
         """
         for e in list(input_dict.keys()):
-            urllib.request.urlretrieve(str(input_dict[e]), str(input_dict[e].split('/')[-1]))
+            arg1 = str(input_dict[e])
+            arg2 = str(input_dict[e].split('/')[-1])
+            urllib.request.urlretrieve('{}'.format(arg1), '{}'.format(arg2))
 
     def download_function(self, arg1):
         """
