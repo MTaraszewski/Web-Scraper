@@ -1,22 +1,6 @@
-#####################################################
-##
-## AUTHOR: MTaraszewski
-##
-## OBJECTIVE: Provide Web Scraping tool Webpage class
-##
-#####################################################
-
-###########################################################
-## STEP 0: LIBRARIES
-###########################################################
-
 from bs4 import BeautifulSoup
 import requests
 from user_agent import generate_user_agent
-
-###########################################################
-## STEP 1 CLASS(ES) DEFINITION
-###########################################################
 
 
 class Webpage(object):
@@ -24,10 +8,6 @@ class Webpage(object):
         """
         Initializes a Webpage object.
 
-        :param link: webpage's link.
-
-        a Webpage object has one attribute:
-            self.link (string, determined by input link)
         """
         self.link = link
 
