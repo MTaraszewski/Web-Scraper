@@ -1,15 +1,3 @@
-#####################################################
-##
-## AUTHOR: MTaraszewski
-##
-## OBJECTIVE: Provide Web Scraping tool wrapper
-##
-#####################################################
-
-###########################################################
-## STEP 0: LIBRARIES
-###########################################################
-
 from helper_functions import *
 from Webpage_class.Webpage import Webpage
 from ImageDownload_class.ImageDownload import ImageDownload
@@ -18,22 +6,16 @@ from TextDownload_class.TextDownload import TextDownload
 import sys
 
 
-#######################
+
 if __name__ == '__main__':
-
-    #################
     ##    START    ##
-    #################
-
     print("----------------------------------------------------------------------")
     print('\nStarting Scraper\n')
     print("----------------------------------------------------------------------")
     webpage_link = start_scraping(Webpage)
     print("----------------------------------------------------------------------")
 
-    ######################
     ## CHECK CONNECTION ##
-    ######################
 
     print('Testing connection...')
     if check_connection(webpage_link) != True:
@@ -42,9 +24,7 @@ if __name__ == '__main__':
         pass
     print("----------------------------------------------------------------------")
 
-    ##########################################
     ## CREATE NEW FOLDER AND SET A NEW PATH ##
-    ##########################################
 
     print('Creating new folder...')
     create_folder(webpage_link)
@@ -53,9 +33,7 @@ if __name__ == '__main__':
     change_directory(webpage_link)
     print("----------------------------------------------------------------------")
 
-    #####################
     ## DOWNLOAD IMAGES ##
-    #####################
 
     class_image_download_object = ImageDownload(webpage_link)
     print('Start downloading images...\n')
@@ -68,9 +46,7 @@ if __name__ == '__main__':
     print('Downloading status: SUCCESS')
     print("----------------------------------------------------------------------")
 
-    ###################
     ## DOWNLOAD TEXT ##
-    ###################
 
     class_text_download_object = TextDownload(webpage_link)
     print('Start downloading text...\n')
@@ -78,8 +54,6 @@ if __name__ == '__main__':
     print('Downloading status: SUCCESS')
     print("----------------------------------------------------------------------")
 
-    ####################
     ## END OF SCRAPER ##
-    ####################
 
     print('Scraping images and text went successfully.\nThank you for spending time with us. Hope you have enjoyed.')
