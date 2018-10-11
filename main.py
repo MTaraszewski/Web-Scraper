@@ -2,10 +2,7 @@ from helper_functions import *
 from Webpage_class.Webpage import Webpage
 from ImageDownload_class.ImageDownload import ImageDownload
 from TextDownload_class.TextDownload import TextDownload
-
 import sys
-
-
 
 if __name__ == '__main__':
     ##    START    ##
